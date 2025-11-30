@@ -126,6 +126,8 @@ The core logic is implemented in modular PySpark/SQL notebooks, which are orches
 | **06** | `vw_sales_analytics.txt` | Creates the final optimized reporting view over the Gold Star Schema. |
 | **07** | `FMCG Sales Analytics dashboard` | **Refresh** the final BI Dashboard in Databricks. |
 
+All notebooks are included in the [`notebooks/`](./notebooks) directory for reference.
+
 ---
 
 ## 📊 BI Dashboard
