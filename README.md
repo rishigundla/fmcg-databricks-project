@@ -44,7 +44,7 @@ This solution implements a specialized Medallion flow to accommodate the differe
 | **View Layer** | **Final Reporting View:** `vw_sales_analytics` is created over the Gold tables for optimal BI tool performance. | Ready for BI Dashboard. |
 | **Orchestration** | **Databricks Workflow:** Jobs are triggered by file arrival in ADLS Gen2 for incremental updates. | Automated refresh of all layers and dashboard. |
 
-![Dashboard Screenshot](./assets/fmcg_databricks_project_architecture.drawio.png)
+![Dashboard Screenshot](./assets/fmcg_databricks_project_architecture.png)
 
 ---
 
