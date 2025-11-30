@@ -44,7 +44,17 @@ This solution implements a specialized Medallion flow to accommodate the differe
 | **View Layer** | **Final Reporting View:** `vw_sales_analytics` is created over the Gold tables for optimal BI tool performance. | Ready for BI Dashboard. |
 | **Orchestration** | **Databricks Workflow:** Jobs are triggered by file arrival in ADLS Gen2 for incremental updates. | Automated refresh of all layers and dashboard. |
 
+---
 
+## ⚙️ Orchestration: Databricks Workflow & Automation
+
+The entire pipeline is automated using Databricks Workflow, moving beyond manual execution to establish a production-ready, event-driven process.
+
+The Workflow job is specifically configured to handle **daily incremental data** from the Sportsbar company:
+
+* **Trigger Mechanism:** The workflow is set to trigger automatically upon the **arrival of the daily orders file** in the designated landing directory within **ADLS Gen2** (Azure Data Lake Storage Gen2).
+* **End-to-End Refresh:** As soon as the daily orders file is placed by the user, the Databricks Workflow jobs are triggered.
+* **Job Sequence:** The workflow executes the notebooks sequentially, ensuring all layers (Bronze, Silver, Gold), the analytical view (`vw_sales_analytics`), and the final BI Dashboard are refreshed with the latest data. This guarantees data freshness and consistency across the entire Lakehouse.
 
 ---
 
