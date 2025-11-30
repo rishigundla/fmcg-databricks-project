@@ -58,6 +58,10 @@ The Workflow job is specifically configured to handle **daily incremental data**
 * **End-to-End Refresh:** As soon as the daily orders file is placed by the user, the Databricks Workflow jobs are triggered.
 * **Job Sequence:** The workflow executes the notebooks sequentially, ensuring all layers (Bronze, Silver, Gold), the analytical view (`vw_sales_analytics`), and the final BI Dashboard are refreshed with the latest data. This guarantees data freshness and consistency across the entire Lakehouse.
 
+![Dashboard Screenshot](./assets/fmcg_refresh_pipeline_tasks.png)
+
+![Dashboard Screenshot](./assets/fmcg_refresh_pipeline_runs.png)
+
 ---
 
 ## 🧰 Tech Stack
@@ -136,13 +140,13 @@ All notebooks are included in the [`notebooks/`](./notebooks) directory for refe
 
 The **FMCG Sales Analytics dashboard** provides the single source of truth for the management, visualizing the aggregated performance of both Atlikon and Sportsbar.
 
-
-
 ### Key Metrics & Features
 * **Key Metrics:** Total Revenue, Total Profit, Total Quantity Sold.
 * **Revenue Trends:** Monthly and Quarter-over-Quarter Revenue analysis.
 * **Distribution:** Product and Category-wise Revenue Distribution.
 * **Real-time:** Near real-time insights based on the curated Gold layer data, automatically refreshed by the Databricks Workflow.
+
+![Dashboard Screenshot](./assets/FMCG_Sales_Analytics_Dashboard.png)
 
 ---
 
