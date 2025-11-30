@@ -1,0 +1,33 @@
+CREATE OR REPLACE VIEW fmcg.03_gold.vw_sales_analytics AS (
+    SELECT 
+        fo.date,
+        fo.product_code,
+        fo.customer_code,
+        dd.datekey,
+        dd.year,
+        dd.month_name,
+        dd.month_short_name,
+        dd.quarter,
+        dd.year_quarter,
+        dc.customer,
+        dc.market,
+        dc.platform,
+        dc.channel,
+        dp.division,
+        dp.category,
+        dp.product,
+        dp.variant,
+        fo.sold_quantity,
+        gp.price_inr,
+        (fo.sold_quantity * gp.price_inr) AS total_amount_inr
+    FROM fmcg.03_gold.fact_orders fo
+    LEFT JOIN fmcg.03_gold.dim_calendar dd
+           ON fo.date = dd.month_start_date
+    LEFT JOIN fmcg.03_gold.dim_customers dc 
+           ON fo.customer_code = dc.customer_code
+    LEFT JOIN fmcg.03_gold.dim_products dp 
+           ON fo.product_code = dp.product_code
+    LEFT JOIN fmcg.03_gold.dim_gross_price gp 
+           ON fo.product_code = gp.product_code
+          AND YEAR(fo.date) = gp.year
+);
